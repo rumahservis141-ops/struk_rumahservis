@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kasir Rumah Servis</title>
+  <title>BY : Nauval Hibrizi Hakim</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #eef1f5;
+      padding: 20px;
+    }
+
+    .app {
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #1d3557;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 200px;
+      height: 200px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: none;
+      height: 80px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .btn-print {
+      background: #1d3557;
+      color: white;
+    }
+
+    .btn-print:hover {
+      background: #16324f;
+    }
+
+    .receipt {
+      background: #fafafa;
+      border: 1px dashed #999;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .receipt-header {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .receipt-header img {
+      width: 70px;
+      margin-bottom: 10px;
+    }
+
+    .receipt-header h2 {
+      margin-bottom: 5px;
+    }
+
+    .line {
+      border-top: 1px dashed #555;
+      margin: 10px 0;
+    }
+
+    .receipt table {
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .receipt td {
+      padding: 5px 0;
+      vertical-align: top;
+    }
+
+    .total {
+      font-size: 20px;
+      font-weight: bold;
+      color: #1d3557;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 12px;
+      color: #555;
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .left-panel,
+      .btn {
+        display: none;
+      }
+
+      .app {
+        display: block;
+      }
+
+      .card {
+        box-shadow: none;
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="app">
+
+  <div class="card left-panel">
+
+    <div class="logo">
+      <img src="image/logo.png">
+      <div>
+        <h1>RUMAH SERVIS</h1>
+        <p>Kasir Rumah Servis</p>
+      </div>
+    </div>
+
+    <h2>Input Data Servis</h2>
+
+    <div class="form-group">
+      <label>Nama kasir</label>
+      <input type="text" id="nota" placeholder="nama orang">
+    </div>
+
+    <div class="form-group">
+      <label>Nama Pelanggan</label>
+      <input type="text" id="nama" placeholder="Masukkan nama pelanggan">
+    </div>
+
+    <div class="form-group">
+      <label>Nomor HP</label>
+      <input type="text" id="nomorhp" placeholder="08xxxxxxxxxx">
+    </div>
+
+    <div class="form-group">
+      <label>Merk HP</label>
+      <input type="text" id="merk" placeholder="Samsung / Xiaomi / Oppo">
+    </div>
+
+    <div class="form-group">
+      <label>Kerusakan</label>
+      <textarea id="kerusakan" placeholder="Contoh: LCD pecah, baterai drop"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Garansi</label>
+      <textarea id="Garansi" placeholder="Contoh: Garansi Satu Bulan"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Status</label>
+      <select id="status">
+        <option>Proses</option>
+        <option>Selesai</option>
+        <option>Menunggu Sparepart</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Biaya Servis</label>
+      <input type="number" id="biaya" placeholder="50000">
+    </div>
+
+    <button class="btn btn-print" onclick="updateStruk()">Update Struk</button>
+    <button class="btn btn-print" onclick="window.print()">Print Struk</button>
+
+  </div>
+
+  <div class="card">
+    <div class="receipt" id="receiptArea">
+
+      <div class="receipt-header">
+        <img src="image/logo.png">
+        <h2>RUMAH SERVIS</h2>
+        <p>Servis HP & Aksesoris</p>
+        <p> Platar, Tahunan, Jepara, Jawa Tengah</p>
+      </div>
+
+      <div class="line"></div>
+
+      <table>
+        <tr>
+          <td>Nama Tukang Servis</td>
+          <td>: <span id="r-nama"></span></td>
+        </tr>
+        <tr>
+          <td>Tanggal</td>
+          <td>: <span id="tanggal"></span></td>
+        </tr>
+        <tr>
+          <td>Nama</td>
+          <td>: <span id="r-nama">-</span></td>
+        </tr>
+        <tr>
+          <td>No HP</td>
+          <td>: <span id="r-nomorhp">-</span></td>
+        </tr>
+        <tr>
+          <td>Merk HP</td>
+          <td>: <span id="r-merk">-</span></td>
+        </tr>
+        <tr>
+          <td>Kerusakan</td>
+          <td>: <span id="r-kerusakan">-</span></td>
+        </tr>
+        <tr>
+          <td>Status</td>
+          <td>: <span id="r-status">-</span></td>
+        </tr>
+      </table>
+
+      <div class="line"></div>
+
+      <table>
+        <tr>
+          <td class="total">TOTAL</td>
+          <td align="right" class="total" id="r-total">Rp 0</td>
+        </tr>
+      </table>
+
+      <div class="line"></div>
+
+      <div class="footer">
+        Terima kasih telah menggunakan jasa kami.<br>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+
+  const today = new Date();
+  document.getElementById('tanggal').innerText = today.toLocaleDateString('id-ID');
+
+  function updateStruk() {
+
+    document.getElementById('r-nota').innerText = document.getElementById('nota').value;
+    document.getElementById('r-nama').innerText = document.getElementById('nama').value;
+    document.getElementById('r-nomorhp').innerText = document.getElementById('nomorhp').value;
+    document.getElementById('r-merk').innerText = document.getElementById('merk').value;
+    document.getElementById('r-kerusakan').innerText = document.getElementById('kerusakan').value;
+    document.getElementById('r-status').innerText = document.getElementById('status').value;
+
+    let biaya = parseInt(document.getElementById('biaya').value) || 0;
+
+    document.getElementById('r-total').innerText = 'Rp ' + biaya.toLocaleString('id-ID');
+  }
+
+</script>
+
+</body>
+</html>

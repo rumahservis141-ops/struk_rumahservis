@@ -1,0 +1,18 @@
+:root{
+  --logo-size: 90px;
+  --logo-struk-size: 80px;
+}
+
+.logo img{
+  width: var(--logo-size);
+  height: var(--logo-size);
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.receipt-header img{
+  width: var(--logo-struk-size);
+  height: var(--logo-struk-size);
+  object-fit: cover;
+  margin-bottom: 10px;
+}
