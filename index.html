@@ -3,194 +3,194 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kasir Rumah Servis</title>
-  <title>BY : Nauval Hibrizi Hakim</title>
+  <title>Kasir Rumah Servis - Nauval Hibrizi Hakim</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
     }
 
-    body {
-      background: #eef1f5;
-      padding: 20px;
+    body{
+      background:#eef1f5;
+      padding:20px;
     }
 
-    .app {
-      max-width: 900px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1fr 350px;
-      gap: 20px;
+    .app{
+      max-width:900px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:1fr 350px;
+      gap:20px;
     }
 
-    .card {
-      background: white;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    .card{
+      background:white;
+      border-radius:15px;
+      padding:20px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
     }
 
-    h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-      color: #1d3557;
+    h1{
+      font-size:28px;
+      margin-bottom:10px;
+      color:#1d3557;
     }
 
-    h2 {
-      margin-bottom: 15px;
-      color: #333;
+    h2{
+      margin-bottom:15px;
+      color:#333;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:20px;
     }
 
-    .logo img {
-      width: 200px;
-      height: 200px;
+    .logo img{
+      width:100px;
+      height:100px;
+      object-fit:contain;
     }
 
-    .form-group {
-      margin-bottom: 15px;
+    .form-group{
+      margin-bottom:15px;
     }
 
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-      color: #444;
+    label{
+      display:block;
+      margin-bottom:5px;
+      font-weight:bold;
+      color:#444;
     }
 
-    input, textarea, select {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 14px;
+    input,
+    textarea,
+    select{
+      width:100%;
+      padding:12px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      font-size:14px;
     }
 
-    textarea {
-      resize: none;
-      height: 80px;
+    textarea{
+      resize:none;
+      height:80px;
     }
 
-    .btn {
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 15px;
-      font-weight: bold;
-      margin-top: 10px;
+    .btn{
+      width:100%;
+      padding:12px;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:15px;
+      font-weight:bold;
+      margin-top:10px;
     }
 
-    .btn-print {
-      background: #1d3557;
-      color: white;
+    .btn-print{
+      background:#1d3557;
+      color:white;
     }
 
-    .btn-print:hover {
-      background: #16324f;
+    .btn-print:hover{
+      background:#16324f;
     }
 
-    .receipt {
-      background: #fafafa;
-      border: 1px dashed #999;
-      padding: 20px;
-      border-radius: 10px;
+    .receipt{
+      background:#fafafa;
+      border:1px dashed #999;
+      padding:20px;
+      border-radius:10px;
     }
 
-    .receipt-header {
-      text-align: center;
-      margin-bottom: 15px;
+    .receipt-header{
+      text-align:center;
+      margin-bottom:15px;
     }
 
-    .receipt-header img {
-      width: 70px;
-      margin-bottom: 10px;
+    .receipt-header img{
+      width:70px;
+      margin-bottom:10px;
     }
 
-    .receipt-header h2 {
-      margin-bottom: 5px;
+    .line{
+      border-top:1px dashed #555;
+      margin:10px 0;
     }
 
-    .line {
-      border-top: 1px dashed #555;
-      margin: 10px 0;
+    .receipt table{
+      width:100%;
+      font-size:14px;
     }
 
-    .receipt table {
-      width: 100%;
-      font-size: 14px;
+    .receipt td{
+      padding:5px 0;
+      vertical-align:top;
     }
 
-    .receipt td {
-      padding: 5px 0;
-      vertical-align: top;
+    .total{
+      font-size:20px;
+      font-weight:bold;
+      color:#1d3557;
     }
 
-    .total {
-      font-size: 20px;
-      font-weight: bold;
-      color: #1d3557;
+    .footer{
+      text-align:center;
+      margin-top:20px;
+      font-size:12px;
+      color:#555;
     }
 
-    .footer {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 12px;
-      color: #555;
-    }
-
-    @media print {
-      body {
-        background: white;
-        padding: 0;
+    @media print{
+      body{
+        background:white;
+        padding:0;
       }
 
       .left-panel,
-      .btn {
-        display: none;
+      .btn{
+        display:none;
       }
 
-      .app {
-        display: block;
+      .app{
+        display:block;
       }
 
-      .card {
-        box-shadow: none;
-        border: none;
+      .card{
+        box-shadow:none;
+        border:none;
       }
     }
   </style>
 </head>
+
 <body>
 
 <div class="app">
 
+  <!-- FORM -->
   <div class="card left-panel">
 
     <div class="logo">
-      <img src="image/logo.png">
+      <img src="image/logo.png" alt="Logo">
       <div>
         <h1>RUMAH SERVIS</h1>
         <p>Kasir Rumah Servis</p>
       </div>
     </div>
 
-    <h2>Input Data Servis & Jual Beli</h2>
+    <h2>Input Data Servis</h2>
 
     <div class="form-group">
-      <label>Nama kasir</label>
-      <input type="text" id="nota" placeholder="nama orang">
+      <label>Nama Teknisi / Kasir</label>
+      <input type="text" id="nota" placeholder="Nama teknisi">
     </div>
 
     <div class="form-group">
@@ -209,13 +209,13 @@
     </div>
 
     <div class="form-group">
-      <label>Keterangan</label>
-      <textarea id="keterangan" placeholder="Contoh: LCD pecah, baterai drop"></textarea>
+      <label>Keterangan Kerusakan</label>
+      <textarea id="keterangan" placeholder="LCD pecah, baterai drop"></textarea>
     </div>
 
     <div class="form-group">
       <label>Garansi</label>
-      <textarea id="Garansi" placeholder="Contoh: Garansi Satu Bulan"></textarea>
+      <textarea id="garansi" placeholder="Garansi 1 bulan"></textarea>
     </div>
 
     <div class="form-group">
@@ -232,52 +232,66 @@
       <input type="number" id="biaya" placeholder="50000">
     </div>
 
-    <button class="btn btn-print" onclick="updateStruk()">Update Struk</button>
-    <button class="btn btn-print" onclick="window.print()">Print Struk</button>
+    <button class="btn btn-print" onclick="updateStruk()">
+      Update Struk
+    </button>
+
+    <button class="btn btn-print" onclick="window.print()">
+      Print Struk
+    </button>
 
   </div>
 
+  <!-- STRUK -->
   <div class="card">
-    <div class="receipt" id="receiptArea">
+
+    <div class="receipt">
 
       <div class="receipt-header">
-        <img src="image/logo.png">
+        <img src="image/logo.png" alt="Logo">
         <h2>RUMAH SERVIS</h2>
         <p>Servis HP & Jual Beli</p>
-        <p> Platar, Tahunan, Jepara, Jawa Tengah</p>
+        <p>Platar, Tahunan, Jepara, Jawa Tengah</p>
       </div>
 
       <div class="line"></div>
 
       <table>
         <tr>
-          <td>Nama Tukang Servis</td>
-          <td>: <span id="r-kasir"></span></td>
+          <td>Nama Teknisi</td>
+          <td>: <span id="r-kasir">-</span></td>
         </tr>
+
         <tr>
           <td>Tanggal</td>
           <td>: <span id="tanggal"></span></td>
         </tr>
+
         <tr>
           <td>Nama</td>
           <td>: <span id="r-nama">-</span></td>
         </tr>
+
         <tr>
           <td>No HP</td>
           <td>: <span id="r-nomorhp">-</span></td>
         </tr>
+
         <tr>
           <td>Merk HP</td>
           <td>: <span id="r-merk">-</span></td>
         </tr>
+
         <tr>
           <td>Keterangan</td>
           <td>: <span id="r-keterangan">-</span></td>
         </tr>
+
         <tr>
           <td>Garansi</td>
           <td>: <span id="r-garansi">-</span></td>
         </tr>
+
         <tr>
           <td>Status</td>
           <td>: <span id="r-status">-</span></td>
@@ -289,38 +303,70 @@
       <table>
         <tr>
           <td class="total">TOTAL</td>
-          <td align="right" class="total" id="r-total">Rp 0</td>
+          <td align="right" class="total" id="r-total">
+            Rp 0
+          </td>
         </tr>
       </table>
 
       <div class="line"></div>
 
       <div class="footer">
-        Terima kasih telah menggunakan jasa kami.<br>
+        Terima kasih telah menggunakan jasa kami.
       </div>
 
     </div>
+
   </div>
 
 </div>
 
 <script>
 
+  // tanggal otomatis
   const today = new Date();
-  document.getElementById('tanggal').innerText = today.toLocaleDateString('id-ID');
 
-  function updateStruk() {
+  document.getElementById("tanggal").innerText =
+    today.toLocaleDateString("id-ID");
 
-    document.getElementById('r-nota').innerText = document.getElementById('nota').value;
-    document.getElementById('r-nama').innerText = document.getElementById('nama').value;
-    document.getElementById('r-nomorhp').innerText = document.getElementById('nomorhp').value;
-    document.getElementById('r-merk').innerText = document.getElementById('merk').value;
-    document.getElementById('r-kerusakan').innerText = document.getElementById('kerusakan').value;
-    document.getElementById('r-status').innerText = document.getElementById('status').value;
+  function updateStruk(){
 
-    let biaya = parseInt(document.getElementById('biaya').value) || 0;
+    // ambil data input
+    const kasir = document.getElementById("nota").value;
+    const nama = document.getElementById("nama").value;
+    const nomorhp = document.getElementById("nomorhp").value;
+    const merk = document.getElementById("merk").value;
+    const keterangan = document.getElementById("keterangan").value;
+    const garansi = document.getElementById("garansi").value;
+    const status = document.getElementById("status").value;
 
-    document.getElementById('r-total').innerText = 'Rp ' + biaya.toLocaleString('id-ID');
+    let biaya =
+      parseInt(document.getElementById("biaya").value) || 0;
+
+    // tampilkan ke struk
+    document.getElementById("r-kasir").innerText =
+      kasir || "-";
+
+    document.getElementById("r-nama").innerText =
+      nama || "-";
+
+    document.getElementById("r-nomorhp").innerText =
+      nomorhp || "-";
+
+    document.getElementById("r-merk").innerText =
+      merk || "-";
+
+    document.getElementById("r-keterangan").innerText =
+      keterangan || "-";
+
+    document.getElementById("r-garansi").innerText =
+      garansi || "-";
+
+    document.getElementById("r-status").innerText =
+      status || "-";
+
+    document.getElementById("r-total").innerText =
+      "Rp " + biaya.toLocaleString("id-ID");
   }
 
 </script>
