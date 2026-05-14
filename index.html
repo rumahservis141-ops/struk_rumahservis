@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kasir Rumah Servis - Nauval Hibrizi Hakim</title>
+  <title>Kasir Rumah Servis</title>
 
   <style>
+
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
-      font-family:Arial,sans-serif;
+      font-family:'Times New Roman', Times, serif, sans-serif;
     }
 
     body{
@@ -52,8 +53,8 @@
     }
 
     .logo img{
-      width:100px;
-      height:100px;
+      width:120px;
+      height:120px;
       object-fit:contain;
     }
 
@@ -103,21 +104,60 @@
       background:#16324f;
     }
 
+    /* STRUK */
+
     .receipt{
       background:#fafafa;
-      border:1px dashed #999;
-      padding:20px;
-      border-radius:10px;
+      border:none;
+      padding:10px;
+      border-radius:5px;
     }
 
     .receipt-header{
-      text-align:center;
+      text-align:left;
       margin-bottom:15px;
     }
 
+    .receipt-title,
+      .subjudul{
+      text-align:center;
+    }
+
+    .alamat{
+      text-align:center;
+    }
+
     .receipt-header img{
-      width:70px;
-      margin-bottom:10px;
+       width:70px;
+       display:block;
+       margin:0 auto;
+       margin-bottom:0px;
+    }
+
+    .receipt-title{
+      font-size:15px;
+      font-weight:bold;
+      color:#1d3557;
+      margin-bottom:5px;
+    }
+
+    /* UBAH UKURAN TULISAN DISINI */
+    .subjudul{
+      font-size:10px;
+      font-weight:bold;
+      color:#000;
+      margin-bottom:5px;
+    }
+
+    .alamat{
+      font-size:8px;
+      color:#333;
+    }
+
+    .powered{
+       font-size:15px;
+       color:#777;
+      font-style:italic;
     }
 
     .line{
@@ -149,9 +189,19 @@
     }
 
     @media print{
+
       body{
         background:white;
         padding:0;
+      }
+
+      @page{
+        size:80mm auto;
+        margin:2mm;
+      }
+
+      body{
+        width:60mm;
       }
 
       .left-panel,
@@ -167,7 +217,53 @@
         box-shadow:none;
         border:none;
       }
+
+      /* isi struk rata kiri */
+      .receipt{
+        text-align:left;
+      }
+
+      /* tabel isi struk */
+      .receipt table{
+        width:100%;
+      }
+
+      .receipt td{
+        text-align:left;
+        padding:5px 0;
+      }
+
+      /* header tetap tengah */
+      .receipt-title,
+      .subjudul,
+      .alamat,
+      .footer{
+        text-align:center;
+      }
+
+      /* logo tetap tengah */
+      .receipt-header img{
+        display:block;
+        margin:0 auto;
+      }
+
     }
+
+    /* Alamat */
+        .alamat{
+        font-size:12px;
+    }
+
+    /* Isi tabel struk */
+        .receipt table{
+        font-size:13px;
+    }
+
+    /* TOTAL */
+        .total{
+        font-size:15px;
+    }
+
   </style>
 </head>
 
@@ -180,6 +276,7 @@
 
     <div class="logo">
       <img src="image/logo.png" alt="Logo">
+
       <div>
         <h1>RUMAH SERVIS</h1>
         <p>Kasir Rumah Servis</p>
@@ -189,7 +286,7 @@
     <h2>Input Data Servis</h2>
 
     <div class="form-group">
-      <label>Nama Teknisi / Kasir</label>
+      <label>Teknisi / Kasir</label>
       <input type="text" id="nota" placeholder="Nama teknisi">
     </div>
 
@@ -220,6 +317,7 @@
 
     <div class="form-group">
       <label>Status</label>
+
       <select id="status">
         <option>Proses</option>
         <option>Selesai</option>
@@ -248,17 +346,29 @@
     <div class="receipt">
 
       <div class="receipt-header">
+
         <img src="image/logo.png" alt="Logo">
-        <h2>RUMAH SERVIS</h2>
-        <p>Servis HP & Jual Beli</p>
-        <p>Platar, Tahunan, Jepara, Jawa Tengah</p>
+
+        <div class="receipt-title">
+          RUMAH SERVIS
+        </div>
+
+        <div class="subjudul">
+          Servis HP & Jual Beli HP
+        </div>
+
+        <div class="alamat">
+          Platar, Tahunan, Jepara, Jawa Tengah
+        </div>
+
       </div>
 
       <div class="line"></div>
 
       <table>
+
         <tr>
-          <td>Nama Teknisi</td>
+          <td>Teknisi</td>
           <td>: <span id="r-kasir">-</span></td>
         </tr>
 
@@ -296,23 +406,32 @@
           <td>Status</td>
           <td>: <span id="r-status">-</span></td>
         </tr>
+
       </table>
 
       <div class="line"></div>
 
       <table>
+
         <tr>
           <td class="total">TOTAL</td>
+
           <td align="right" class="total" id="r-total">
             Rp 0
           </td>
         </tr>
+
       </table>
 
       <div class="line"></div>
 
       <div class="footer">
         Terima kasih telah menggunakan jasa kami.
+      </div>
+
+       <span class="powered">
+          By Nauval Hibrizi Hakim
+      </span>
       </div>
 
     </div>
@@ -331,19 +450,32 @@
 
   function updateStruk(){
 
-    // ambil data input
-    const kasir = document.getElementById("nota").value;
-    const nama = document.getElementById("nama").value;
-    const nomorhp = document.getElementById("nomorhp").value;
-    const merk = document.getElementById("merk").value;
-    const keterangan = document.getElementById("keterangan").value;
-    const garansi = document.getElementById("garansi").value;
-    const status = document.getElementById("status").value;
+    const kasir =
+      document.getElementById("nota").value;
+
+    const nama =
+      document.getElementById("nama").value;
+
+    const nomorhp =
+      document.getElementById("nomorhp").value;
+
+    const merk =
+      document.getElementById("merk").value;
+
+    const keterangan =
+      document.getElementById("keterangan").value;
+
+    const garansi =
+      document.getElementById("garansi").value;
+
+    const status =
+      document.getElementById("status").value;
 
     let biaya =
       parseInt(document.getElementById("biaya").value) || 0;
 
     // tampilkan ke struk
+
     document.getElementById("r-kasir").innerText =
       kasir || "-";
 
@@ -367,6 +499,7 @@
 
     document.getElementById("r-total").innerText =
       "Rp " + biaya.toLocaleString("id-ID");
+
   }
 
 </script>
