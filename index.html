@@ -1,270 +1,245 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kasir Rumah Servis</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
+<title>Kasir Rumah Servis</title>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Times New Roman', Times, serif, sans-serif;
-    }
+<style>
 
-    body{
-      background:#eef1f5;
-      padding:20px;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Times New Roman', Times, serif;
+}
 
-    .app{
-      max-width:900px;
-      margin:auto;
-      display:grid;
-      grid-template-columns:1fr 350px;
-      gap:20px;
-    }
+body{
+  background:#e5e7eb;
+  padding:20px;
+}
 
-    .card{
-      background:white;
-      border-radius:15px;
-      padding:20px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    }
+/* CONTAINER */
 
-    h1{
-      font-size:28px;
-      margin-bottom:10px;
-      color:#1d3557;
-    }
+.app{
+  max-width:900px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:20px;
+}
 
-    h2{
-      margin-bottom:15px;
-      color:#333;
-    }
+/* CARD */
 
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:20px;
-    }
+.card{
+  background:white;
+  border-radius:15px;
+  padding:20px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
 
-    .logo img{
-      width:120px;
-      height:120px;
-      object-fit:contain;
-    }
+/* HEADER */
 
-    .form-group{
-      margin-bottom:15px;
-    }
+.logo{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-bottom:20px;
+}
 
-    label{
-      display:block;
-      margin-bottom:5px;
-      font-weight:bold;
-      color:#444;
-    }
+.logo img{
+  width:90px;
+  height:90px;
+  object-fit:contain;
+}
 
-    input,
-    textarea,
-    select{
-      width:100%;
-      padding:12px;
-      border:1px solid #ccc;
-      border-radius:8px;
-      font-size:14px;
-    }
+h1{
+  font-size:28px;
+  color:#1d3557;
+}
 
-    textarea{
-      resize:none;
-      height:80px;
-    }
+h2{
+  margin-bottom:15px;
+  color:#333;
+}
 
-    .btn{
-      width:100%;
-      padding:12px;
-      border:none;
-      border-radius:10px;
-      cursor:pointer;
-      font-size:15px;
-      font-weight:bold;
-      margin-top:10px;
-    }
+/* FORM */
 
-    .btn-print{
-      background:#1d3557;
-      color:white;
-    }
+.form-group{
+  margin-bottom:15px;
+}
 
-    .btn-print:hover{
-      background:#16324f;
-    }
+label{
+  display:block;
+  margin-bottom:5px;
+  font-weight:bold;
+  color:#444;
+}
 
-    /* STRUK */
+input,
+textarea,
+select{
+  width:100%;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:14px;
+}
 
-    .receipt{
-      background:#fafafa;
-      border:none;
-      padding:10px;
-      border-radius:5px;
-    }
+textarea{
+  resize:none;
+  height:80px;
+}
 
-    .receipt-header{
-      text-align:left;
-      margin-bottom:15px;
-    }
+.btn{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:15px;
+  font-weight:bold;
+  margin-top:10px;
+}
 
-    .receipt-title,
-      .subjudul{
-      text-align:center;
-    }
+.btn-print{
+  background:#1d3557;
+  color:white;
+}
 
-    .alamat{
-      text-align:center;
-    }
+.btn-print:hover{
+  background:#16324f;
+}
 
-    .receipt-header img{
-       width:70px;
-       display:block;
-       margin:0 auto;
-       margin-bottom:0px;
-    }
+/* STRUK */
 
-    .receipt-title{
-      font-size:15px;
-      font-weight:bold;
-      color:#1d3557;
-      margin-bottom:5px;
-    }
+.receipt{
+  background:#fff;
+  padding:15px;
+  border-radius:8px;
+  width:56mm;
+  margin:auto;
+  color:#000;
+}
 
-    /* UBAH UKURAN TULISAN DISINI */
-    .subjudul{
-      font-size:10px;
-      font-weight:bold;
-      color:#000;
-      margin-bottom:5px;
-    }
+.receipt-header{
+  text-align:center;
+}
 
-    .alamat{
-      font-size:8px;
-      color:#333;
-    }
+.receipt-header img{
+  width:150px;
+  margin-bottom:2px;
+}
 
-    .powered{
-       font-size:15px;
-       color:#777;
-      font-style:italic;
-    }
+.receipt-title{
+  font-size:18px;
+  font-weight:bold;
+  line-height:1.1;
+}
 
-    .line{
-      border-top:1px dashed #555;
-      margin:10px 0;
-    }
+.subjudul{
+  font-size:15px;
+  font-weight:bold;
+}
 
-    .receipt table{
-      width:100%;
-      font-size:14px;
-    }
+.alamat{
+  font-size:12px;
+  line-height:1.2;
+  color:#444;
+}
 
-    .receipt td{
-      padding:5px 0;
-      vertical-align:top;
-    }
+.line{
+  border-top:1px dashed #555;
+  margin:8px 0;
+}
 
-    .total{
-      font-size:20px;
-      font-weight:bold;
-      color:#1d3557;
-    }
+.receipt table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+}
 
-    .footer{
-      text-align:center;
-      margin-top:20px;
-      font-size:12px;
-      color:#555;
-    }
+.receipt td{
+  padding:3px 0;
+  vertical-align:top;
+}
 
-    @media print{
+.receipt td:first-child{
+  width:42%;
+}
 
-      body{
-        background:white;
-        padding:0;
-      }
+.total-row td{
+  padding-top:6px;
+  font-size:16px;
+  font-weight:bold;
+}
 
-      @page{
-        size:80mm auto;
-        margin:2mm;
-      }
+.total-label{
+  text-align:left;
+}
 
-      body{
-        width:60mm;
-      }
+.total-value{
+  text-align:right;
+}
 
-      .left-panel,
-      .btn{
-        display:none;
-      }
+.footer{
+  text-align:center;
+  margin-top:10px;
+  font-size:15px;
+  line-height:1.4;
+  color:#444;
+}
 
-      .app{
-        display:block;
-      }
+.powered{
+  display:block;
+  margin-top:8px;
+  text-align:center;
+  font-size:15px;
+  color:#666;
+  font-style:italic;
+}
 
-      .card{
-        box-shadow:none;
-        border:none;
-      }
+/* PRINT */
 
-      /* isi struk rata kiri */
-      .receipt{
-        text-align:left;
-      }
+@media print{
 
-      /* tabel isi struk */
-      .receipt table{
-        width:100%;
-      }
+  body{
+    background:white;
+    padding:0;
+    margin:0;
+  }
 
-      .receipt td{
-        text-align:left;
-        padding:5px 0;
-      }
+  @page{
+    size:56mm auto;
+    margin:2mm;
+  }
 
-      /* header tetap tengah */
-      .receipt-title,
-      .subjudul,
-      .alamat,
-      .footer{
-        text-align:center;
-      }
+  .left-panel,
+  .btn{
+    display:none;
+  }
 
-      /* logo tetap tengah */
-      .receipt-header img{
-        display:block;
-        margin:0 auto;
-      }
+  .app{
+    display:block;
+  }
 
-    }
+  .card{
+    box-shadow:none;
+    border:none;
+    padding:0;
+    margin:0;
+  }
 
-    /* Alamat */
-        .alamat{
-        font-size:12px;
-    }
+  .receipt{
+    width:52mm;
+    padding:2mm;
+    border:none;
+  }
 
-    /* Isi tabel struk */
-        .receipt table{
-        font-size:13px;
-    }
+}
 
-    /* TOTAL */
-        .total{
-        font-size:15px;
-    }
-
-  </style>
+</style>
 </head>
 
 <body>
@@ -285,36 +260,65 @@
 
     <h2>Input Data Servis</h2>
 
+    <!-- Teknisi -->
     <div class="form-group">
-      <label>Teknisi / Kasir</label>
-      <input type="text" id="nota" placeholder="Nama teknisi">
+      <label>Teknisi</label>
+
+      <select id="nota">
+        <option value="Farel">Farel</option>
+        <option value="Danu">Danu</option>
+        <option value="Zazen">Zazen</option>
+      </select>
     </div>
 
+    <!-- Nama -->
     <div class="form-group">
       <label>Nama Pelanggan</label>
-      <input type="text" id="nama" placeholder="Masukkan nama pelanggan">
+
+      <input type="text"
+             id="nama"
+             placeholder="Masukkan nama pelanggan">
     </div>
 
+    <!-- No HP -->
     <div class="form-group">
       <label>Nomor HP</label>
-      <input type="text" id="nomorhp" placeholder="08xxxxxxxxxx">
+
+      <input type="text"
+             id="nomorhp"
+             placeholder="08xxxxxxxxxx">
     </div>
 
+    <!-- Tipe HP -->
     <div class="form-group">
-      <label>Merk HP</label>
-      <input type="text" id="merk" placeholder="Samsung / Xiaomi / Oppo">
+      <label>Tipe HP</label>
+
+      <input type="text"
+             id="merk"
+             placeholder="Samsung / Xiaomi / Oppo">
     </div>
 
+    <!-- Kerusakan -->
     <div class="form-group">
       <label>Keterangan Kerusakan</label>
-      <textarea id="keterangan" placeholder="LCD pecah, baterai drop"></textarea>
+
+      <textarea id="keterangan"
+      placeholder="LCD pecah, baterai drop"></textarea>
     </div>
 
+    <!-- Garansi -->
     <div class="form-group">
-      <label>Garansi</label>
-      <textarea id="garansi" placeholder="Garansi 1 bulan"></textarea>
+      <label>Pilih Garansi</label>
+
+      <select id="group">
+        <option>Garansi 1 Minggu</option>
+        <option>Garansi 2 Minggu</option>
+        <option>Garansi 3 Minggu</option>
+        <option>Tanpa Garansi</option>
+      </select>
     </div>
 
+    <!-- Status -->
     <div class="form-group">
       <label>Status</label>
 
@@ -325,17 +329,29 @@
       </select>
     </div>
 
+    <!-- Biaya -->
     <div class="form-group">
       <label>Biaya Servis</label>
-      <input type="number" id="biaya" placeholder="50000">
+
+      <input type="number"
+             id="biaya"
+             placeholder="50000">
     </div>
 
-    <button class="btn btn-print" onclick="updateStruk()">
+    <!-- BUTTON -->
+
+    <button class="btn btn-print"
+            onclick="updateStruk()">
+
       Update Struk
+
     </button>
 
-    <button class="btn btn-print" onclick="window.print()">
+    <button class="btn btn-print"
+            onclick="window.print()">
+
       Print Struk
+
     </button>
 
   </div>
@@ -344,6 +360,8 @@
   <div class="card">
 
     <div class="receipt">
+
+      <!-- HEADER -->
 
       <div class="receipt-header">
 
@@ -364,6 +382,8 @@
       </div>
 
       <div class="line"></div>
+
+      <!-- DATA -->
 
       <table>
 
@@ -388,12 +408,12 @@
         </tr>
 
         <tr>
-          <td>Merk HP</td>
+          <td>Tipe HP</td>
           <td>: <span id="r-merk">-</span></td>
         </tr>
 
         <tr>
-          <td>Keterangan</td>
+          <td>Kerusakan</td>
           <td>: <span id="r-keterangan">-</span></td>
         </tr>
 
@@ -411,28 +431,38 @@
 
       <div class="line"></div>
 
+      <!-- TOTAL -->
+
       <table>
 
-        <tr>
-          <td class="total">TOTAL</td>
+        <tr class="total-row">
 
-          <td align="right" class="total" id="r-total">
-            Rp 0
+          <td class="total-label">
+            TOTAL
           </td>
+
+          <td class="total-value"
+              id="r-total">
+
+            Rp 0
+
+          </td>
+
         </tr>
 
       </table>
 
       <div class="line"></div>
 
+      <!-- FOOTER -->
+
       <div class="footer">
         Terima kasih telah menggunakan jasa kami.
       </div>
 
-       <span class="powered">
-          By Nauval Hibrizi Hakim
+      <span class="powered">
+        By Nauval Hibrizi Hakim
       </span>
-      </div>
 
     </div>
 
@@ -442,65 +472,55 @@
 
 <script>
 
-  // tanggal otomatis
-  const today = new Date();
+// TANGGAL
 
-  document.getElementById("tanggal").innerText =
-    today.toLocaleDateString("id-ID");
+const today = new Date();
 
-  function updateStruk(){
+document.getElementById("tanggal").innerText =
+today.toLocaleDateString("id-ID");
 
-    const kasir =
-      document.getElementById("nota").value;
+// UPDATE STRUK
 
-    const nama =
-      document.getElementById("nama").value;
+function updateStruk(){
 
-    const nomorhp =
-      document.getElementById("nomorhp").value;
+  const kasir =
+    document.getElementById("nota").value;
 
-    const merk =
-      document.getElementById("merk").value;
+  const nama =
+    document.getElementById("nama").value;
 
-    const keterangan =
-      document.getElementById("keterangan").value;
+  const nomorhp =
+    document.getElementById("nomorhp").value;
 
-    const garansi =
-      document.getElementById("garansi").value;
+  const merk =
+    document.getElementById("merk").value;
 
-    const status =
-      document.getElementById("status").value;
+  const keterangan =
+    document.getElementById("keterangan").value;
 
-    let biaya =
-      parseInt(document.getElementById("biaya").value) || 0;
+  const garansi =
+    document.getElementById("group").value;
 
-    // tampilkan ke struk
+  const status =
+    document.getElementById("status").value;
 
-    document.getElementById("r-kasir").innerText =
-      kasir || "-";
+  let biaya =
+    parseInt(document.getElementById("biaya").value) || 0;
 
-    document.getElementById("r-nama").innerText =
-      nama || "-";
+  // TAMPILKAN
 
-    document.getElementById("r-nomorhp").innerText =
-      nomorhp || "-";
+  document.getElementById("r-kasir").innerText = kasir;
+  document.getElementById("r-nama").innerText = nama;
+  document.getElementById("r-nomorhp").innerText = nomorhp;
+  document.getElementById("r-merk").innerText = merk;
+  document.getElementById("r-keterangan").innerText = keterangan;
+  document.getElementById("r-garansi").innerText = garansi;
+  document.getElementById("r-status").innerText = status;
 
-    document.getElementById("r-merk").innerText =
-      merk || "-";
+  document.getElementById("r-total").innerText =
+    "Rp " + biaya.toLocaleString("id-ID");
 
-    document.getElementById("r-keterangan").innerText =
-      keterangan || "-";
-
-    document.getElementById("r-garansi").innerText =
-      garansi || "-";
-
-    document.getElementById("r-status").innerText =
-      status || "-";
-
-    document.getElementById("r-total").innerText =
-      "Rp " + biaya.toLocaleString("id-ID");
-
-  }
+}
 
 </script>
 
